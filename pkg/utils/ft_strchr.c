@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_opera_rotate.c                               :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 19:06:48 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/24 22:00:27 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/01/24 23:24:24 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/01/24 23:25:18 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "utils.h"
 
-int	stack_rotate(t_stack *stack)
+char	*ft_strchr(const char *str, int ch)
 {
-	t_stack_node	*tmp;
-	int				old_top_data;
+	int	counter;
 
-	if (!stack || !stack->top)
-		return (1);
-	old_top_data = stack->top->data;
-	tmp = stack->top;
-	while (tmp && tmp->next) 
+	counter = 0;
+	while (str[counter])
 	{
-		tmp->data = tmp->next->data;
-		tmp = tmp->next;
+		if (str[counter] == ch)
+			return ((char *)str + counter);
+		counter++;
 	}
-	tmp->data = old_top_data;
+	if (str[counter] == ch)
+		return ((char *)str + counter);
 	return (0);
 }

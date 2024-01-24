@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_opera_rotate.c                               :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 19:06:48 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/24 22:00:27 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/01/24 23:30:12 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/01/24 23:35:40 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "utils.h"
 
-int	stack_rotate(t_stack *stack)
+int	ft_strcmp(const char *str1, const char *str2)
 {
-	t_stack_node	*tmp;
-	int				old_top_data;
+	size_t	counter;
+	int		result;
 
-	if (!stack || !stack->top)
-		return (1);
-	old_top_data = stack->top->data;
-	tmp = stack->top;
-	while (tmp && tmp->next) 
+	counter = 0;
+	result = 0;
+	while ((str1[counter] || str2[counter]))
 	{
-		tmp->data = tmp->next->data;
-		tmp = tmp->next;
+		if (str1[counter] != str2[counter])
+		{
+			result = (unsigned char)str1[counter]
+				- (unsigned char)str2[counter];
+			return (result);
+		}
+		counter++;
 	}
-	tmp->data = old_top_data;
-	return (0);
+	return ((unsigned char)str1[counter] - (unsigned char)str2[counter]);
 }

@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_opera_rotate.c                               :+:      :+:    :+:   */
+/*   validation.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 19:06:48 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/24 22:00:27 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/01/25 00:06:03 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/01/25 00:23:56 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#ifndef VALIDATION_H
+# define VALIDATION_H
 
-int	stack_rotate(t_stack *stack)
-{
-	t_stack_node	*tmp;
-	int				old_top_data;
+#include "../../pkg/utils/utils.h"
+#include "../../pkg/stack/stack.h"
 
-	if (!stack || !stack->top)
-		return (1);
-	old_top_data = stack->top->data;
-	tmp = stack->top;
-	while (tmp && tmp->next) 
-	{
-		tmp->data = tmp->next->data;
-		tmp = tmp->next;
-	}
-	tmp->data = old_top_data;
-	return (0);
-}
+int	validate_stack(t_stack *stack);
+
+#endif

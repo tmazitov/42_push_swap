@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_opera_rotate.c                               :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 19:06:48 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/24 22:00:27 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/01/25 00:06:59 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/01/25 01:04:03 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "validation.h"
 
-int	stack_rotate(t_stack *stack)
+static int check_duplicate(t_stack *stack)
 {
-	t_stack_node	*tmp;
-	int				old_top_data;
+	t_stack_node	*node;
 
-	if (!stack || !stack->top)
-		return (1);
-	old_top_data = stack->top->data;
-	tmp = stack->top;
-	while (tmp && tmp->next) 
+	node = stack->top;
+	while (node)
 	{
-		tmp->data = tmp->next->data;
-		tmp = tmp->next;
+		if (stack_includes(stack, node->data) != 1)
+			return (1);
+		node = node->next;
 	}
-	tmp->data = old_top_data;
+	return (0);
+}
+
+int	validate_stack(t_stack *stack)
+{
+	int	err;
+
+	err = check_duplicate(stack);
+	if (err != 0) 
+		return (1);
 	return (0);
 }

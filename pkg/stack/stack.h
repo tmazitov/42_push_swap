@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:11:54 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/24 19:49:30 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/01/25 00:16:48 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		stack_push(t_stack *stack, int num);
 int		stack_swap(t_stack *stack);
 int		stack_rotate(t_stack *stack);
 int		stack_rotate_reverse(t_stack *stack);
+int		stack_includes(t_stack *stack, int data);
 
 // STACK NODE
 t_stack_node	*make_stack_node(int data);

@@ -6,11 +6,11 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:22:12 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/24 19:14:35 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/01/24 22:00:10 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./stack.h"
+#include "stack.h"
 
 int	stack_swap(t_stack *stack)
 {

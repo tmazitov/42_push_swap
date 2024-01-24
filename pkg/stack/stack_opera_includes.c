@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_opera_rotate.c                               :+:      :+:    :+:   */
+/*   stack_opera_includes.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 19:06:48 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/24 22:00:27 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/01/25 00:14:14 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/01/25 00:19:52 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-int	stack_rotate(t_stack *stack)
+int	stack_includes(t_stack *stack, int data)
 {
-	t_stack_node	*tmp;
-	int				old_top_data;
+	t_stack_node	*node;
+	int				counter;
 
-	if (!stack || !stack->top)
-		return (1);
-	old_top_data = stack->top->data;
-	tmp = stack->top;
-	while (tmp && tmp->next) 
+	counter = 0;
+	node = stack->top;
+	while (node) 
 	{
-		tmp->data = tmp->next->data;
-		tmp = tmp->next;
+		if (node->data == data) 
+			counter += 1;
+		node = node->next;
 	}
-	tmp->data = old_top_data;
-	return (0);
+	return (counter);
 }
