@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:53:10 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/25 01:21:52 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:22:23 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,9 @@ int main(int argc, char *argv[])
 	stack_b = make_stack();
 	if (!stack_b)
 		return (free_stack(stack_b), 1);
+	ft_printf("Stack A\n");
+	stack_print(stack_a);
+	rra(stack_a);
+	ft_printf("Stack A\n");
+	stack_print(stack_a);
 }

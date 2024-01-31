@@ -1,5 +1,7 @@
 LIBRARY := libstack.a
 
+PRINTF := cd ../printf && make
+
 SRCS := stack.c \
 		stack_node.c \
 		stack_opera_pop.c \
@@ -19,16 +21,19 @@ GREEN := \033[0;32m
 NC := \033[0m
 
 $(LIBRARY): $(OBJS)
+	$(PRINTF)
 	ar rcs $@ $^
 	@echo "$(GREEN)---- Libstack build successful!$(NC)"
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
+clean:	
+	cd ../printf && make clean
 	rm -f $(OBJS)
 	@echo "$(GREEN)---- Libstack clean successful!$(NC)"
 
 fclean: clean
+	cd ../printf && make fclean
 	rm -f $(LIBRARY)
 	@echo "$(GREEN)---- Libstack clean all successful!$(NC)"

@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 23:50:07 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/31 19:14:06 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/01/31 18:27:34 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/01/31 18:29:45 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "operations.h"
 
-# include <stdlib.h>
-# include "../internal/parsing/parsing.h"
-# include "../internal/validation/validation.h"
-# include "../internal/operations/operations.h"
-# include "../pkg/printf/ft_printf.h"
-#endif
+int	ra(t_stack *a)
+{
+	return (stack_rotate(a));
+}
+
+int rb(t_stack *b)
+{
+	return (stack_rotate(b));
+}
+
+int rr(t_stack *a, t_stack *b)
+{
+	if (stack_rotate(a))
+		return (1);
+	return (stack_rotate(b));
+}

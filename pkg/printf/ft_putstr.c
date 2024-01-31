@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 23:50:07 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/31 19:14:06 by tmazitov         ###   ########.fr       */
+/*   Created: 2023/07/12 12:46:17 by tmazitov          #+#    #+#             */
+/*   Updated: 2023/07/17 15:29:13 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "ft_printf.h"
 
-# include <stdlib.h>
-# include "../internal/parsing/parsing.h"
-# include "../internal/validation/validation.h"
-# include "../internal/operations/operations.h"
-# include "../pkg/printf/ft_printf.h"
-#endif
+int	ft_putstr(char *s)
+{
+	int	result;
+
+	result = 0;
+	if (!s)
+		return (ft_putstr("(null)"));
+	while (*s)
+		result += ft_putchar(*s++);
+	return (result);
+}

@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_opera_rotate_reverse.c                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 19:29:31 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/31 19:41:58 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/01/31 18:21:29 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/01/31 18:27:11 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "operations.h"
 
-int	stack_rotate_reverse(t_stack *stack)
+int	pa(t_stack *a, t_stack *b)
 {
-	t_stack_node	*tmp;
-	int				old_bot_data;
+	int	old_top_value;
 
-	if (!stack || !stack->top)
+	if (b->size == 0)
+		return (0);
+	old_top_value = b->top->data;
+	if (stack_pop(b))
 		return (1);
-	tmp = stack->top;
-	while (tmp && tmp->next)
-		tmp = tmp->next;
-	old_bot_data = tmp->data;
-	while (tmp && tmp->prev) 
-	{
-		tmp->data = tmp->prev->data;
-		tmp = tmp->prev;
-	}
-	tmp->data = old_bot_data;
-	return (0);
+	return (stack_push(a, old_top_value));
+}
+
+int	pb(t_stack *b, t_stack *a)
+{
+	int	old_top_value;
+
+	if (a->size == 0)
+		return (0);
+	old_top_value = a->top->data;
+	if (stack_pop(a))
+		return (1);
+	return (stack_push(b, old_top_value));
 }

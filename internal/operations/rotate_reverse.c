@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   rotate_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 23:50:07 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/31 19:14:06 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/01/31 18:30:46 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/01/31 18:31:13 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "operations.h"
 
-# include <stdlib.h>
-# include "../internal/parsing/parsing.h"
-# include "../internal/validation/validation.h"
-# include "../internal/operations/operations.h"
-# include "../pkg/printf/ft_printf.h"
-#endif
+int	rra(t_stack *a)
+{
+	return (stack_rotate_reverse(a));
+}
+
+int rrb(t_stack *b)
+{
+	return (stack_rotate_reverse(b));
+}
+
+int rrr(t_stack *a, t_stack *b)
+{
+	if (stack_rotate_reverse(a))
+		return (1);
+	return (stack_rotate_reverse(b));
+}

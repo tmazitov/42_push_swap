@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:11:54 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/25 00:16:48 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:13:48 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define STACK_H
 
 # include <stdlib.h>
+# include "../printf/ft_printf.h"
 
 typedef struct		s_stack
 {
@@ -40,9 +41,10 @@ int		stack_swap(t_stack *stack);
 int		stack_rotate(t_stack *stack);
 int		stack_rotate_reverse(t_stack *stack);
 int		stack_includes(t_stack *stack, int data);
+void	stack_print(t_stack *stack);
+int		stack_is_equal(t_stack *a, t_stack *b);
 
 // STACK NODE
 t_stack_node	*make_stack_node(int data);
 void			*free_stack_node(t_stack_node *node);
-
 #endif

@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.h                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 23:50:07 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/31 19:14:06 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/01/31 18:17:50 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/01/31 19:16:00 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "operations.h"
 
-# include <stdlib.h>
-# include "../internal/parsing/parsing.h"
-# include "../internal/validation/validation.h"
-# include "../internal/operations/operations.h"
-# include "../pkg/printf/ft_printf.h"
-#endif
+int	sa(t_stack *a)
+{
+	return (stack_swap(a));
+}
+
+int	sb(t_stack *b)
+{
+	return (stack_swap(b));
+}
+
+int	ss(t_stack *a, t_stack *b)
+{
+	stack_swap(a);
+	return (stack_swap(b));
+}

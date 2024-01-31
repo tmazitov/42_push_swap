@@ -6,11 +6,12 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 22:21:24 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/25 00:29:42 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/01/31 19:07:58 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+#include <stdio.h>
 
 static int	calc_total_length(char const **strs)
 {
@@ -43,7 +44,7 @@ char	*ft_strjoin(char const **strs, char separator)
 	while (*strs && counter < total_length)
 	{
 		while (**strs)
-			result[counter++] = **strs++;
+			result[counter++] = *(*strs)++;
 		if (strs + 1 != NULL)
 			result[counter++] = separator;
 		strs++;
