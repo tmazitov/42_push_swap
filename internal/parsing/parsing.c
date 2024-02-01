@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 21:59:35 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/31 19:51:14 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/01 22:09:11 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,14 @@ t_stack	*parse(char **argv)
 	counter = 0;
 	while (number_array[counter+1])
 		counter++;
-	while (1)
+	while (counter != -1)
 	{		
 		if (check_overflow(number_array[counter]))
-			return (free_stack(stack), free_split(number_array));
+			return (free_split(number_array));
 		if (stack_push(stack, ft_atoi(number_array[counter])))
-			return (free_stack(stack), free_split(number_array));
+			return (free_split(number_array));
 		counter -= 1;
-		if (counter == -1)
-			break ;
 	}
+	// free_split(number_array);
 	return (stack);
 }
