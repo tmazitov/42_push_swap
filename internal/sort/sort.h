@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_opera_pop.c                                  :+:      :+:    :+:   */
+/*   sort.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 19:43:53 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/01 15:11:58 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/02/01 14:43:56 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/02/01 18:31:23 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#ifndef SORT_H
+# define SORT_H
 
-int	stack_pop(t_stack	*stack)
+# include "../operations/operations.h"
+
+int	make_sort(t_stack *a, t_stack *b);
+int find_cheapest(t_stack *a, t_stack *b);
+int	grade_to_put(t_stack *stack, int number);
+int grade_to_take(t_stack *stack, int number);
+
+typedef struct s_sort_inst
 {
-	t_stack_node	*old_top;
+	int	rotate_a;
+	int	rotate_b;
+	int	cost;
+}		t_sort_inst;
 
-	if (!stack || !stack->top)
-		return (1);
-	old_top = stack->top;
-	stack->top = stack->top->next;
-	stack->top->prev = NULL;
-	free_stack_node(old_top);
-	stack->size -= 1;
-	return (0);
-}
+
+#endif // !SORT_H

@@ -11,7 +11,10 @@ SRCS := cmd/main.c \
 		internal/operations/push.c \
 		internal/operations/swap.c \
 		internal/operations/rotate.c \
-		internal/operations/rotate_reverse.c
+		internal/operations/rotate_reverse.c \
+		internal/sort/sort.c \
+		internal/sort/sort_grade.c \
+		internal/sort/sort_cheapes.c \
 
 OBJS := $(SRCS:.c=.o)
 

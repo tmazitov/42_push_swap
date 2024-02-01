@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_opera_pop.c                                  :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 19:43:53 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/01 15:11:58 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/02/01 14:44:41 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/02/01 18:56:42 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "sort.h"
 
-int	stack_pop(t_stack	*stack)
+int	make_sort(t_stack *a, t_stack *b)
 {
-	t_stack_node	*old_top;
-
-	if (!stack || !stack->top)
+	if (!a || !b)
 		return (1);
-	old_top = stack->top;
-	stack->top = stack->top->next;
-	stack->top->prev = NULL;
-	free_stack_node(old_top);
-	stack->size -= 1;
+	
+	// TODO : handle case with 2 and 3 values in stack 
+
+	if (pb(b, a))
+		return (1);
+	if (pb(b, a))
+		return (1);
+	if (pb(b, a))
+		return (1);
+	if (pb(b, a))
+		return (1);
+	if (pb(b, a))
+		return (1);
+
+	stack_print(a);
+	stack_print(b);
+
+	find_cheapest(a,b);
+	// while (a->size != 2 && a->size != 3)
+	// {
+		
+	// }
 	return (0);
 }

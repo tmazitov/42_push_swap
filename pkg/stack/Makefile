@@ -10,6 +10,9 @@ SRCS := stack.c \
 		stack_opera_rotate.c \
 		stack_opera_rotate_reverse.c \
 		stack_opera_includes.c \
+		stack_opera_max.c \
+		stack_opera_min.c \
+		stack_checks.c \
 		stack_utils.c 
 
 OBJS := $(SRCS:.c=.o)
