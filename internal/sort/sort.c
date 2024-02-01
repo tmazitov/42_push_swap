@@ -6,14 +6,56 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:44:41 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/01 18:56:42 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:50:06 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
+
+static int make_rotate_a_by_inst(t_stack *stack, t_sort_inst inst)
+{
+	while (inst.rotate_a != 0)
+	{
+		if (inst.rotate_a < 0)
+		{
+			if (rra(stack))
+				return (1);
+			inst.rotate_a += 1;			
+		}
+		else if (inst.rotate_a > 0)
+		{
+			if (ra(stack))
+				return (1);
+			inst.rotate_a -= 1;
+		}	
+	}
+	return (0);
+}
+static int make_rotate_b_by_inst(t_stack *stack, t_sort_inst inst)
+{
+	while (inst.rotate_b != 0)
+	{
+		if (inst.rotate_b < 0)
+		{
+			if (rrb(stack))
+				return (1);
+			inst.rotate_b += 1;			
+		}
+		else if (inst.rotate_b > 0)
+		{
+			if (rb(stack))
+				return (1);
+			inst.rotate_b -= 1;
+		}	
+	}
+	return (0);
+}
+
 int	make_sort(t_stack *a, t_stack *b)
 {
+	t_sort_inst	inst;
+
 	if (!a || !b)
 		return (1);
 	
@@ -23,20 +65,23 @@ int	make_sort(t_stack *a, t_stack *b)
 		return (1);
 	if (pb(b, a))
 		return (1);
-	if (pb(b, a))
-		return (1);
-	if (pb(b, a))
-		return (1);
-	if (pb(b, a))
-		return (1);
-
-	stack_print(a);
 	stack_print(b);
-
-	find_cheapest(a,b);
-	// while (a->size != 2 && a->size != 3)
-	// {
-		
-	// }
+	while (a->size != 2 && a->size != 3)
+	{
+		ft_printf("Start new inter\n");
+		ft_printf("A\t");
+		stack_print(a);
+		ft_printf("B\t");
+		stack_print(b);
+		inst = find_cheapest(a, b);
+		if (make_rotate_a_by_inst(a, inst))
+			return (1);
+		if (make_rotate_b_by_inst(b, inst))
+			return (1);
+		pb(b, a);
+		ft_printf("\n\t###############\t\n\n");
+	}
+	ft_printf("B final\t");
+	stack_print(b);
 	return (0);
 }

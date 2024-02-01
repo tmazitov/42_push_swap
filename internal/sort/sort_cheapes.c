@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:21:13 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/01 18:48:33 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:20:00 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_sort_inst make_instruction(t_stack_node *node, t_stack *a, t_stack *b)
 {
 	t_sort_inst inst;
 	
+	inst.number = node->data;
 	inst.rotate_a = grade_to_take(a, node->data);
 	inst.rotate_b = grade_to_put(b, node->data);
 	if (inst.rotate_a >= 0 && inst.rotate_b >= 0)
@@ -40,7 +41,7 @@ t_sort_inst make_instruction(t_stack_node *node, t_stack *a, t_stack *b)
 	return (inst);
 }
 
-int find_cheapest(t_stack *a, t_stack *b)
+t_sort_inst find_cheapest(t_stack *a, t_stack *b)
 {
 	t_stack_node	*node;
 	t_stack_node	*cheapest;
@@ -51,6 +52,7 @@ int find_cheapest(t_stack *a, t_stack *b)
 	cheapest = a->top;
 	cheapest_inst = make_instruction(cheapest, a, b);
 	ft_printf("  |num\t|take\t|put\t|total\t|\n");
+	ft_printf("  | %d\t|%d\t|%d\t|%d\t|\n", cheapest->data, cheapest_inst.rotate_a, cheapest_inst.rotate_b, cheapest_inst.cost);
 	while (node)
 	{
 		inst = make_instruction(node, a, b);
@@ -63,7 +65,6 @@ int find_cheapest(t_stack *a, t_stack *b)
 		node = node->next;
 	}
 	ft_printf("c | %d\t|%d\t|%d\t|%d\t|\n", cheapest->data, cheapest_inst.rotate_a, cheapest_inst.rotate_b, cheapest_inst.cost);
-
-	return (0);
+	return (cheapest_inst);
 }
 

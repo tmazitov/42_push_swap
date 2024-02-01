@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:43:56 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/01 18:31:23 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:18:47 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 # include "../operations/operations.h"
 
-int	make_sort(t_stack *a, t_stack *b);
-int find_cheapest(t_stack *a, t_stack *b);
-int	grade_to_put(t_stack *stack, int number);
-int grade_to_take(t_stack *stack, int number);
 
 typedef struct s_sort_inst
 {
+	int number;
 	int	rotate_a;
 	int	rotate_b;
 	int	cost;
 }		t_sort_inst;
 
-
+int			make_sort(t_stack *a, t_stack *b);
+int			grade_to_put(t_stack *stack, int number);
+int 		grade_to_take(t_stack *stack, int number);
+t_sort_inst	find_cheapest(t_stack *a, t_stack *b);
 #endif // !SORT_H
