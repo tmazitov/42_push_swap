@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 21:59:35 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/01 22:09:11 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:47:42 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ int	check_overflow(char *num)
 	if (!num_check)
 		return (1);
 	result = ft_strcmp(num_check, num);
-	free(num_check); 
+	free(num_check);
+	if (result)
+		ft_printf("overflow %s\n", num);
 	return (result);
 }
 
@@ -63,6 +65,6 @@ t_stack	*parse(char **argv)
 			return (free_split(number_array));
 		counter -= 1;
 	}
-	// free_split(number_array);
+	free_split(number_array);
 	return (stack);
 }

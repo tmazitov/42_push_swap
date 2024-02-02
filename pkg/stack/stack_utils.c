@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 19:33:57 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/01 15:16:23 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:02:27 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ void	stack_print(t_stack *stack)
 	if (!stack)
 		return ;
 	node = stack->top;
-	ft_printf("stack: ");
 	while (node)
 	{
 		ft_printf("%d", node->data);
 		if (node->next)
-			ft_printf(" -> ");
+			ft_printf(" ");
 		node = node->next;
 	}
 	ft_printf("\n");

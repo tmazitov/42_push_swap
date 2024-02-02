@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:12:20 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/24 22:00:19 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/02 14:05:40 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void *free_stack(t_stack *stack)
 {
 	if (!stack)
 		return (NULL);
-	if (stack->top)
+	while (stack->top)
 		stack_pop(stack);
 	free(stack);
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:44:41 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/02 15:12:12 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:39:50 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,10 @@ int	make_sort(t_stack *a, t_stack *b)
 		return (1);
 	while (a->size != 2 && a->size != 3)
 	{
+		// 		ft_printf("A\t");
+		// stack_print(a);
+		// ft_printf("B\t");
+		// stack_print(b);
 		inst = find_cheapest(a, b);
 		if (make_rotate_ab_by_list(a, b, &inst))
 			return (1);
@@ -113,6 +117,5 @@ int	make_sort(t_stack *a, t_stack *b)
 	}
 	while (!stack_is_sorted(a, MIN_TO_MAX))
 		ra(a);
-	stack_print(a);
 	return (0);
 }
