@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:21:13 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/01 19:20:00 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/02 14:04:54 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ t_sort_inst find_cheapest(t_stack *a, t_stack *b)
 	node = a->top->next;
 	cheapest = a->top;
 	cheapest_inst = make_instruction(cheapest, a, b);
-	ft_printf("  |num\t|take\t|put\t|total\t|\n");
-	ft_printf("  | %d\t|%d\t|%d\t|%d\t|\n", cheapest->data, cheapest_inst.rotate_a, cheapest_inst.rotate_b, cheapest_inst.cost);
+	// ft_printf("  |num\t|take\t|put\t|total\t|\n");
+	// ft_printf("  | %d\t|%d\t|%d\t|%d\t|\n", cheapest->data, cheapest_inst.rotate_a, cheapest_inst.rotate_b, cheapest_inst.cost);
 	while (node)
 	{
 		inst = make_instruction(node, a, b);
@@ -61,10 +61,10 @@ t_sort_inst find_cheapest(t_stack *a, t_stack *b)
 			cheapest = node;
 			cheapest_inst = inst;
 		}
-		ft_printf("  | %d\t|%d\t|%d\t|%d\t|\n", node->data, inst.rotate_a, inst.rotate_b, inst.cost);
+		// ft_printf("  | %d\t|%d\t|%d\t|%d\t|\n", node->data, inst.rotate_a, inst.rotate_b, inst.cost);
 		node = node->next;
 	}
-	ft_printf("c | %d\t|%d\t|%d\t|%d\t|\n", cheapest->data, cheapest_inst.rotate_a, cheapest_inst.rotate_b, cheapest_inst.cost);
+	// ft_printf("c | %d\t|%d\t|%d\t|%d\t|\n", cheapest->data, cheapest_inst.rotate_a, cheapest_inst.rotate_b, cheapest_inst.cost);
 	return (cheapest_inst);
 }
 
