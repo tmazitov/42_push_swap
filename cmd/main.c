@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:53:10 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/01 15:18:40 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:34:51 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	(void)argc;
+	ft_printf("ac : %d\n", argc);
 	stack_a = parse(argv);
 	if (!stack_a)
 		return (1);

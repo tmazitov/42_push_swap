@@ -1,1 +1,15 @@
-./pushswap 40 58 28 98 72 79 89 32 82 74 95 17 22 80 84 64 53 34 26 48 61 67 29 39 77 21 15 66 94  6 87 96 13 25  8 23 46 11 19 30 86 47 59 91 24 10 81  3 71 50 56 55 85
+separator=" -> "
+
+for test in $( ls ./tests | grep "test")
+do
+	test_value=$(cat ./tests/${test} | tr " " "\n")
+	echo $test_value
+	pushswap_result=$(./pushswap ${test_value})
+	echo =======
+	# echo $pushswap_result
+	# pushswap_values = $(echo $pushswap_result | tr $SEPARATOR)
+	# for value in $pushswap_values
+	# do
+	# 	echo $value
+	# done
+done
