@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 22:59:42 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/01 23:24:56 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:11:57 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static void	grade_update(t_stack_node **node, t_stack *s, int *grade, int *mode)
 
 int check_between(t_stack_node *node, int x, int max, int min)
 {
-	if (node->data == max && node->prev->data == min)
+	if ((node->data == max && node->prev->data == min) ||
+		(node->data == min && node->prev->data == max))
 		return (x > max || x < min);
 	return ((node->data > x && node->prev->data < x ) ||
 			(node->data < x && node->prev->data > x));

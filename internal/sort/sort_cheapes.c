@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:21:13 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/02 14:04:54 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:11:49 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_sort_inst make_instruction(t_stack_node *node, t_stack *a, t_stack *b)
 	inst.number = node->data;
 	inst.rotate_a = grade_to_take(a, node->data);
 	inst.rotate_b = grade_to_put(b, node->data);
+	// ft_printf("num: %d\trotate put: %d\n", inst.number, inst.rotate_b);
 	if (inst.rotate_a >= 0 && inst.rotate_b >= 0)
 		inst.cost = max(inst.rotate_a, inst.rotate_b);
 	else
