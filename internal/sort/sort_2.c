@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_opera_swap.c                                 :+:      :+:    :+:   */
+/*   sort_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 18:22:12 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 03:06:36 by tmazitov         ###   ########.fr       */
+/*   Created: 2024/02/05 02:10:48 by tmazitov          #+#    #+#             */
+/*   Updated: 2024/02/05 02:11:57 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "sort.h"
 
-int	stack_swap(t_stack *stack)
+int	sort_2(t_stack *a)
 {
-	int	tmp;
-
-	if (!stack || stack->size < 2)
-		return (1);
-	tmp = stack->top->data;
-	stack->top->data = stack->top->next->data;
-	stack->top->next->data = tmp;
-	return (0);
+	if (stack_is_sorted(a, MIN_TO_MAX))
+		return (0);
+	return (sa(a));
 }

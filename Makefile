@@ -7,12 +7,15 @@ CFLAGS := -Wall -Wextra -Werror -fsanitize=address
 
 SRCS := cmd/main.c \
 		internal/parsing/parsing.c \
+		internal/parsing/validation.c \
 		internal/validation/validation.c \
 		internal/operations/push.c \
 		internal/operations/swap.c \
 		internal/operations/rotate.c \
 		internal/operations/rotate_reverse.c \
 		internal/sort/sort.c \
+		internal/sort/sort_2.c \
+		internal/sort/sort_3.c \
 		internal/sort/sort_grade_take.c \
 		internal/sort/sort_grade_put.c \
 		internal/sort/sort_cheapes.c \

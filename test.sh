@@ -5,7 +5,7 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-PRINT_IO=false
+PRINT_IO=true
 
 # Loop through all files in the ./tests folder that contain the word "test"
 for file in ./tests/*test*; do

@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:44:41 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/02 13:39:50 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 03:02:08 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,10 @@ int	make_sort(t_stack *a, t_stack *b)
 	if (!a || !b)
 		return (1);
 	
-	// TODO : handle case with 2 and 3 values in stack 
-
+	if (a->size == 2)
+		return (sort_2(a));
+	if (a->size == 3)
+		return (sort_3(a));
 	if (pb(b, a))
 		return (1);
 	if (pb(b, a))
@@ -99,6 +101,12 @@ int	make_sort(t_stack *a, t_stack *b)
 			return (1);
 		pb(b, a);
 	}
+	// stack_print(a);
+	if (a->size == 2)
+		sort_2(a);
+	if (a->size == 3)
+		sort_3(a);
+	// stack_print(a);
 	while (b->size != 0)
 	{
 		// ft_printf("A\t");
@@ -115,7 +123,9 @@ int	make_sort(t_stack *a, t_stack *b)
 			return (1);
 		pa(a, b);
 	}
-	while (!stack_is_sorted(a, MIN_TO_MAX))
-		ra(a);
+
+	inst.rotate_a = grade_to_take(a, stack_min(a)->data);
+	make_rotate_a_by_inst(a, inst);
+
 	return (0);
 }

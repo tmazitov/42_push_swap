@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 21:59:16 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/24 23:52:18 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 01:50:05 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@
 # include "../../pkg/utils/utils.h"
 
 t_stack	*parse(char **argv);
-
+int		validation(int argc, char **argv);
 #endif
