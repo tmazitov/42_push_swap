@@ -56,8 +56,8 @@ for file in ./tests/*test_*; do
 	fi
 
 	case $cheker_result 
-		in *OK*) printf "%21s : ${GREEN} OK ${NC} %d\n" $file $count_of_operations;; 
-		*)		 printf "%21s : ${RED} KO ${NC} %d\n" $file $count_of_operations;; 
+		in *OK*) printf "%24s : ${GREEN} OK ${NC} %d\n" $file $count_of_operations;; 
+		*)		 printf "%24s : ${RED} KO ${NC} %d\n" $file $count_of_operations;; 
 	esac
 
 	if [ $PRINT_INPUT = true ]; then

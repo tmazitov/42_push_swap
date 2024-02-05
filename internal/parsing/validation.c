@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 01:41:53 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 21:50:21 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 01:15:59 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,36 @@ static int	check_numbers(char **argv)
 	return (1);
 }
 
+static int	check_values(char **argv)
+{
+	int	counter;
+	int	word_counter;
+	int	digit_counter;
+
+	counter = 0;
+	while(argv[counter])
+	{
+		word_counter = 0;
+		digit_counter = 0;
+		while (argv[counter][word_counter])
+		{
+			if (argv[counter][word_counter] < '0' ||
+				argv[counter][word_counter] > '9')
+				digit_counter += 1;
+			word_counter++;
+		}
+		if (digit_counter == 0)
+			return (0);
+		counter += 1;
+	}
+	return (1);
+}
+
 int	validation(int argc, char **argv)
 {
 	if (argc == 1)
+		return (0);
+	if (!check_values(argv + 1))
 		return (0);
 	if (!check_numbers(argv + 1))
 		return (0);
