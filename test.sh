@@ -1,44 +1,62 @@
 #!/bin/bash
 
+PRINT_INPUT=false
+PRINT_OUTPUT=false
+
+CHECKER_PATH=/home/tlenovo/tools/pushswap_checker
+PUSHSWAP_PATH=/home/tlenovo/projects/study/42_push_swap/push_swap
+
 # FILEPATH: /home/tlenovo/projects/study/42_push_swap/test.sh
-GREEN='\033[0;32m'
 RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-PRINT_IO=true
+
+echo "\n${BLUE}PARSING TESTS${NC}\n"
+
+for file in ./tests/*teste*; do
+	numbers=$(cat "$file")
+	result=$($PUSHSWAP_PATH $numbers)
+	if [ $PRINT_INPUT = true ]; then
+		echo "Input\t: $(echo "$numbers" | tr '\n' ' ')"
+	fi
+	if [ $PRINT_OUTPUT = true ]; then
+		echo "Output\t: $(echo "$result" | tr '\n' ' ')"
+	fi
+	
+	case $result in 
+		*Error*) printf "%30s : ${GREEN}OK${NC}\n" $file;; 
+		*) 	printf "%30s : ${RED}KO${NC}\n" $file;; 
+	esac
+	# if [ -z "${$result##*Error*}"]; then
+	# 	echo "$file:\t ${GREEN}OK${NC}"
+	# else
+	# 	echo "$file:\t ${RED}KO${NC}"
+	# fi 
+done
+
+echo "\n${BLUE}MAIN TESTS${NC}\n"
 
 # Loop through all files in the ./tests folder that contain the word "test"
-for file in ./tests/*test*; do
+for file in ./tests/*test_*; do
 	# Extract the numbers from the file
 	numbers=$(cat "$file")
 
 	# Execute the program "pushswap" with the numbers as arguments
 	result=$(./pushswap $numbers)
-	if [ $PRINT_IO = true ]; then
+	
+	if [ $PRINT_INPUT = true ]; then
 		echo "Input\t: $(echo "$numbers" | tr '\n' ' ')"
-		echo "Output\t: $result"
 	fi
-	# Check if the list of numbers is in order from min to max
-	for number in $(echo "$result" | tr ' ' '\n')
-	do
-		if [ -n $prev_number ]; then
-			prev_number=$number
-			continue 
-		fi
-		# Check if the current number is greater than the previous number
-		if [ $number -lt $prev_number ]; then
-			not_greater=$number
-			break
-		fi
-
-		# Set the current number as the previous number for the next iteration
-		prev_number=$number
-	done
-
-	if [ -n $not_greater ]; then 
-		echo "$file:\t\t ${GREEN}OK${NC}"
-	else
-		echo "$file:\t\t ${RED}KO${NC}"
+	if [ $PRINT_OUTPUT = true ]; then
+		echo "Output\t: $(echo "$result" | tr '\n' ' ')"
 	fi
 
+	cheker_result=$($PUSHSWAP_PATH $numbers | $CHECKER_PATH $numbers)
+
+	case $cheker_result in 
+		*OK*) printf "%21s : ${GREEN}$cheker_result${NC}\n" $file;; 
+		*) 	printf "%21s : ${RED}$cheker_result${NC}\n" $file;; 
+	esac
 done

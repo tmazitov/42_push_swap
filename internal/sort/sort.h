@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:43:56 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 02:12:56 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 05:46:54 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,14 @@ typedef struct s_sort_inst
 int			make_sort(t_stack *a, t_stack *b);
 int			sort_2(t_stack *a);
 int			sort_3(t_stack *a);
+int			sort_fill_a(t_stack *a, t_stack *b);
+int			sort_fill_b(t_stack *a, t_stack *b);
 int			grade_to_put(t_stack *stack, int number);
 int 		grade_to_take(t_stack *stack, int number);
 t_sort_inst	find_cheapest(t_stack *a, t_stack *b);
+
+int make_rotate_a_by_inst(t_stack *stack, int rotate);
+int make_rotate_b_by_inst(t_stack *stack, int rotate);
+int	make_rotate_ab_by_list(t_stack *a, t_stack *b, t_sort_inst *inst);
+
 #endif // !SORT_H

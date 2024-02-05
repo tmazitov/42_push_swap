@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 21:59:35 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/02 13:47:42 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 04:18:42 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int	check_overflow(char *num)
 		return (1);
 	result = ft_strcmp(num_check, num);
 	free(num_check);
-	if (result)
-		ft_printf("overflow %s\n", num);
 	return (result);
 }
 
@@ -55,14 +53,15 @@ t_stack	*parse(char **argv)
 	if (!stack)
 		return (NULL);
 	counter = 0;
-	while (number_array[counter+1])
+	while (number_array[counter])
 		counter++;
+	counter--;
 	while (counter != -1)
 	{		
 		if (check_overflow(number_array[counter]))
-			return (free_split(number_array));
+			return (free_stack(stack), free_split(number_array));
 		if (stack_push(stack, ft_atoi(number_array[counter])))
-			return (free_split(number_array));
+			return (free_stack(stack), free_split(number_array));
 		counter -= 1;
 	}
 	free_split(number_array);

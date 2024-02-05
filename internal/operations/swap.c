@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:17:50 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/31 19:16:00 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 03:54:24 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 int	sa(t_stack *a)
 {
+	ft_printf("sa\n");
 	return (stack_swap(a));
 }
 
 int	sb(t_stack *b)
 {
+	ft_printf("sb\n");
 	return (stack_swap(b));
 }
 
 int	ss(t_stack *a, t_stack *b)
 {
 	stack_swap(a);
+	ft_printf("ss\n");
 	return (stack_swap(b));
 }

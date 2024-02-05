@@ -1,4 +1,4 @@
-NAME := pushswap
+NAME := push_swap
 
 GREEN := \033[0;32m
 NC := \033[0m
@@ -16,6 +16,8 @@ SRCS := cmd/main.c \
 		internal/sort/sort.c \
 		internal/sort/sort_2.c \
 		internal/sort/sort_3.c \
+		internal/sort/sort_fill_a.c \
+		internal/sort/sort_fill_b.c \
 		internal/sort/sort_grade_take.c \
 		internal/sort/sort_grade_put.c \
 		internal/sort/sort_cheapes.c \

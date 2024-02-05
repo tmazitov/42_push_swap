@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:21:29 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/31 18:27:11 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 03:29:57 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	pa(t_stack *a, t_stack *b)
 	old_top_value = b->top->data;
 	if (stack_pop(b))
 		return (1);
+	ft_printf("pa\n");
 	return (stack_push(a, old_top_value));
 }
 
@@ -33,5 +34,6 @@ int	pb(t_stack *b, t_stack *a)
 	old_top_value = a->top->data;
 	if (stack_pop(a))
 		return (1);
+	ft_printf("pb\n");
 	return (stack_push(b, old_top_value));
 }
