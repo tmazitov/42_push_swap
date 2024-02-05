@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 01:41:53 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 04:16:08 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 21:50:21 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	check_numbers(char **argv)
 
 int	validation(int argc, char **argv)
 {
-	if (argc == 1 || argc == 2)
+	if (argc == 1)
 		return (0);
 	if (!check_numbers(argv + 1))
 		return (0);

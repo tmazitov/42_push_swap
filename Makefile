@@ -18,6 +18,7 @@ SRCS := cmd/main.c \
 		internal/sort/sort_3.c \
 		internal/sort/sort_fill_a.c \
 		internal/sort/sort_fill_b.c \
+		internal/sort/sort_make_rotate.c \
 		internal/sort/sort_grade_take.c \
 		internal/sort/sort_grade_put.c \
 		internal/sort/sort_cheapes.c \

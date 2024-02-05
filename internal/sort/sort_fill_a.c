@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 05:42:43 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 05:48:49 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 22:13:20 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@ int	sort_fill_a(t_stack *a, t_stack *b)
 		// ft_printf("inst : num %d b %d a %d\n", inst.number, inst.rotate_a, inst.rotate_b);
 		if (make_rotate_ab_by_list(a, b, &inst))
 			return (1);
-		if (make_rotate_a_by_inst(a, inst.rotate_b))
+		if (make_rotate_stack_by_inst(a, inst.rotate_b))
 			return (1);
-		if (make_rotate_b_by_inst(b, inst.rotate_a))
+		if (make_rotate_stack_by_inst(b, inst.rotate_a))
 			return (1);
 		pa(a, b);
 	}
+	// stack_print(a);
+
 	return (0);
 }

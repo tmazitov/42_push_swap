@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:43:56 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 05:46:54 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 22:10:40 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ int			grade_to_put(t_stack *stack, int number);
 int 		grade_to_take(t_stack *stack, int number);
 t_sort_inst	find_cheapest(t_stack *a, t_stack *b);
 
-int make_rotate_a_by_inst(t_stack *stack, int rotate);
-int make_rotate_b_by_inst(t_stack *stack, int rotate);
+int make_rotate_stack_by_inst(t_stack *stack, int rotate);
 int	make_rotate_ab_by_list(t_stack *a, t_stack *b, t_sort_inst *inst);
 
 #endif // !SORT_H

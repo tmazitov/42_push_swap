@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 02:14:40 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 03:01:28 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 21:24:07 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	sort_3(t_stack *a)
 	if (a->top->next == stack_min(a) && stack_last_node(a) == stack_max(a))
 		return (sa(a));
 	if (a->top->next == stack_min(a) && a->top == stack_max(a))
-		return (ra(a));
+		return (ra(a));	
 	return (0);
 }

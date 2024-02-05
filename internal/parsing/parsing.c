@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 21:59:35 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 04:18:42 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 22:12:07 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_stack	*parse(char **argv)
 	number_array = collect_numbers(argv);
 	if (!number_array)
 		return (NULL);
-	stack = make_stack();
+	stack = make_stack('a');
 	if (!stack)
 		return (NULL);
 	counter = 0;

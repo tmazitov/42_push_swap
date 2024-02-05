@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:53:10 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 20:09:49 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 22:12:03 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		return (ft_printf("Error : memory allocation failed\n"), 1);
 	if (validate_stack(stack_a) != 0)
 		return (ft_printf("Error : invalid element of the sequence\n"), free_stack(stack_a), 1);
-	stack_b = make_stack();
+	stack_b = make_stack('b');
 	if (!stack_b)
 		return (ft_printf("Error : memory allocation failed\n"), free_stack(stack_b), 1);
 	make_sort(stack_a, stack_b);

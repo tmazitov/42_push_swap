@@ -6,13 +6,13 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:12:20 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/02 14:05:40 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/05 22:11:37 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-t_stack *make_stack() 
+t_stack *make_stack(char name)
 {
 	t_stack *stack;
 
@@ -20,6 +20,7 @@ t_stack *make_stack()
 	if (!stack) 
 		return (NULL);
 	stack->size = 0;
+	stack->name = name;
 	stack->top = NULL;
 	return (stack);
 }

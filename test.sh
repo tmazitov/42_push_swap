@@ -2,9 +2,11 @@
 
 PRINT_INPUT=false
 PRINT_OUTPUT=false
+SHOW_NUMBERS=true
 
 CHECKER_PATH=/home/tlenovo/tools/pushswap_checker
 PUSHSWAP_PATH=/home/tlenovo/projects/study/42_push_swap/push_swap
+
 
 # FILEPATH: /home/tlenovo/projects/study/42_push_swap/test.sh
 RED='\033[0;31m'
@@ -44,19 +46,24 @@ for file in ./tests/*test_*; do
 	numbers=$(cat "$file")
 
 	# Execute the program "pushswap" with the numbers as arguments
-	result=$(./pushswap $numbers)
+	result=$($PUSHSWAP_PATH $numbers)
 	
+	count_of_operations=$(echo $result |  tr ' ' '\n' | wc -l)
+	cheker_result=$($PUSHSWAP_PATH $numbers | $CHECKER_PATH $numbers)
+
+	if [ $SHOW_NUMBERS = true ]; then
+		result=$(echo "$result" | tr -cs '[:digit:]' ' ' | tr -s ' ')
+	fi
+
+	case $cheker_result 
+		in *OK*) printf "%21s : ${GREEN} OK ${NC} %d\n" $file $count_of_operations;; 
+		*)		 printf "%21s : ${RED} KO ${NC} %d\n" $file $count_of_operations;; 
+	esac
+
 	if [ $PRINT_INPUT = true ]; then
 		echo "Input\t: $(echo "$numbers" | tr '\n' ' ')"
 	fi
 	if [ $PRINT_OUTPUT = true ]; then
 		echo "Output\t: $(echo "$result" | tr '\n' ' ')"
 	fi
-
-	cheker_result=$($PUSHSWAP_PATH $numbers | $CHECKER_PATH $numbers)
-
-	case $cheker_result in 
-		*OK*) printf "%21s : ${GREEN}$cheker_result${NC}\n" $file;; 
-		*) 	printf "%21s : ${RED}$cheker_result${NC}\n" $file;; 
-	esac
 done
