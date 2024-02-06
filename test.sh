@@ -4,8 +4,8 @@ PRINT_INPUT=false
 PRINT_OUTPUT=false
 SHOW_NUMBERS=true
 
-CHECKER_PATH=/home/tlenovo/tools/pushswap_checker
-PUSHSWAP_PATH=/home/tlenovo/projects/study/42_push_swap/push_swap
+CHECKER_PATH=/Users/tmazitov/Desktop/tools/checker_Mac
+PUSHSWAP_PATH=./push_swap
 
 
 # FILEPATH: /home/tlenovo/projects/study/42_push_swap/test.sh
