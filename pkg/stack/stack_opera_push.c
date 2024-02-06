@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:43:03 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/24 22:00:38 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:53:32 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	stack_push(t_stack *stack, int num)
 	new_node = make_stack_node(num);
 	if (!new_node)
 		return (1);
-	if (stack->top) {
+	if (stack->top)
+	{
 		new_node->next = stack->top;
 		stack->top->prev = new_node;
 	}

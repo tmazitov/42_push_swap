@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 22:21:24 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/31 19:07:58 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:54:19 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static int	calc_total_length(char const **strs)
 {
 	int		count;
-	
+
 	count = 0;
 	while (*strs)
 	{

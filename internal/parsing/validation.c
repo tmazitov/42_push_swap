@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 01:41:53 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/06 19:07:27 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:37:32 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 static int	check_numbers(char **argv)
 {
-	int	counter;
-	int	word_counter;
+	int		counter;
+	int		word_counter;
+	char	ch;
 
 	counter = 0;
-	while(argv[counter])
+	while (argv[counter])
 	{
 		word_counter = 0;
 		while (argv[counter][word_counter])
 		{
-			if ((argv[counter][word_counter] < '0' ||
-				argv[counter][word_counter] > '9') && 
-				argv[counter][word_counter] != ' ' &&
-				argv[counter][word_counter] != '+' &&
-				argv[counter][word_counter] != '-')
+			ch = argv[counter][word_counter];
+			if ((ch < '0' || ch > '9') && 
+				ch != ' ' && ch != '+' && ch != '-')
 				return (0);
 			word_counter++;
 		}
@@ -43,7 +42,7 @@ static int	check_values(char **argv)
 	int	digit_counter;
 
 	counter = 0;
-	while(argv[counter])
+	while (argv[counter])
 	{
 		word_counter = 0;
 		digit_counter = 0;

@@ -6,14 +6,14 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 22:10:24 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/01/25 00:55:18 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:54:09 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 char	**ft_split(char const *str, char ch);
 void	*free_split(char **result);

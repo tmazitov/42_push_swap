@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 22:49:33 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/01 22:57:45 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:45:37 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	grade_update(t_stack_node **node, t_stack *s, int *grade, int *mode)
 	*node = (*node)->next;
 }
 
-int grade_to_take(t_stack *stack, int number)
+int	grade_to_take(t_stack *stack, int number)
 {
 	t_stack_node	*node;
 	int				grade;
@@ -42,7 +42,7 @@ int grade_to_take(t_stack *stack, int number)
 	grade = 0;
 	node = stack->top;
 	calc_mode = 0;
-	while(node)
+	while (node)
 	{
 		if (node->data == number)
 			return (grade);

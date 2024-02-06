@@ -6,13 +6,13 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 00:06:59 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 22:14:55 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:46:16 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "validation.h"
 
-static int check_duplicate(t_stack *stack)
+static int	check_duplicate(t_stack *stack)
 {
 	t_stack_node	*node;
 
