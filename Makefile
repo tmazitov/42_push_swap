@@ -3,7 +3,7 @@ NAME := push_swap
 GREEN := \033[0;32m
 NC := \033[0m
 CC := gcc
-CFLAGS := -Wall -Wextra -Werror -fsanitize=address
+CFLAGS := -Wall -Wextra -Werror
 
 SRCS := cmd/main.c \
 		internal/parsing/parsing.c \
@@ -37,7 +37,7 @@ $(NAME): $(OBJS)
 		pkg/stack/libstack.a \
 		pkg/printf/libftprintf.a \
 		-o $(NAME) 
-	@echo "$(GREEN)Pushswap build successful!$(NC)"
+	@echo "$(GREEN)Pushswap build successfully!$(NC)"
 
 all: $(NAME)
 
@@ -45,13 +45,13 @@ clean:
 	cd pkg/stack && make clean
 	cd pkg/utils && make clean
 	rm -f $(OBJS)
-	@echo "$(GREEN)Pushswap clean successful!$(NC)"
+	@echo "$(GREEN)Pushswap clean successfully!$(NC)"
 
 fclean: clean
 	cd pkg/stack && make fclean
 	cd pkg/utils && make fclean
 	rm -f $(NAME)
-	@echo "$(GREEN)Pushswap clean all successful!$(NC)"
+	@echo "$(GREEN)Pushswap clean all successfully!$(NC)"
 
 re:		fclean all
 
