@@ -50,7 +50,7 @@ clean:
 fclean: clean
 	cd pkg/stack && make fclean
 	cd pkg/utils && make fclean
-	rm -f $(LIBRARY)
+	rm -f $(NAME)
 	@echo "$(GREEN)Pushswap clean all successful!$(NC)"
 
 re:		fclean all
