@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:53:10 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/07 10:13:47 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:40:21 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char *argv[])
 	a = parse(argv);
 	if (!a)
 		return (panic("stack parsing failed", a, b));
-	if (a->size == 1)
+	if (a->size == 1 || stack_is_sorted(a, MIN_TO_MAX))
 		return (0);
 	if (validate_stack(a))
 		return (panic("invalid elements of the stack", a, b));
