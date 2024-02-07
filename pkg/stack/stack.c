@@ -6,15 +6,15 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:12:20 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 22:11:37 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:47:03 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-t_stack *make_stack(char name)
+t_stack	*make_stack(char name)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack) 
@@ -25,7 +25,7 @@ t_stack *make_stack(char name)
 	return (stack);
 }
 
-void *free_stack(t_stack *stack)
+void	*free_stack(t_stack *stack)
 {
 	if (!stack)
 		return (NULL);

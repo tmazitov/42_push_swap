@@ -6,13 +6,13 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:44:41 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 22:09:59 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:38:46 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 
-int min(int x, int y)
+int	min(int x, int y)
 {
 	if (x < y)
 		return (x);
@@ -21,7 +21,7 @@ int min(int x, int y)
 
 int	make_sort(t_stack *a, t_stack *b)
 {
-	int count;
+	int			count;
 	t_sort_inst	inst;
 
 	if (!a || !b)

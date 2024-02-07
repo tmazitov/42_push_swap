@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 22:59:42 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/02 15:11:57 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:43:41 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ static void	grade_update(t_stack_node **node, t_stack *s, int *grade, int *mode)
 	*node = (*node)->next;
 }
 
-int check_between(t_stack_node *node, int x, int max, int min)
+int	check_between(t_stack_node *node, int x, int max, int min)
 {
-	if ((node->data == max && node->prev->data == min) ||
-		(node->data == min && node->prev->data == max))
+	if ((node->data == max && node->prev->data == min)
+		|| (node->data == min && node->prev->data == max))
 		return (x > max || x < min);
-	return ((node->data > x && node->prev->data < x ) ||
-			(node->data < x && node->prev->data > x));
+	return ((node->data > x && node->prev->data < x)
+		|| (node->data < x && node->prev->data > x));
 }
 
-int grade_to_put(t_stack *stack, int number)
+int	grade_to_put(t_stack *stack, int number)
 {
 	t_stack_node	*node;
 	int				grade;
@@ -55,7 +55,7 @@ int grade_to_put(t_stack *stack, int number)
 	min = stack_min(stack)->data;
 	node = stack->top->next;
 	calc_mode = 0;
-	while(node)
+	while (node)
 	{
 		if (check_between(node, number, max, min))
 			return (grade);

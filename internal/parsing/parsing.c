@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 21:59:35 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 22:12:07 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:35:38 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	**collect_numbers(char **argv)
 	char	*number_union;
 	char	**number_array;
 
-	number_union = ft_strjoin((const char **)(argv+1), ' ');
+	number_union = ft_strjoin((const char **)(argv +1), ' ');
 	if (!number_union)
 		return (NULL);
 	number_array = ft_split(number_union, ' ');
@@ -45,7 +45,7 @@ t_stack	*parse(char **argv)
 	t_stack	*stack;
 	char	**number_array;
 	int		counter;
-	
+
 	number_array = collect_numbers(argv);
 	if (!number_array)
 		return (NULL);
@@ -57,7 +57,7 @@ t_stack	*parse(char **argv)
 		counter++;
 	counter--;
 	while (counter != -1)
-	{		
+	{
 		if (check_overflow(number_array[counter]))
 			return (free_stack(stack), free_split(number_array));
 		if (stack_push(stack, ft_atoi(number_array[counter])))

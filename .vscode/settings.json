@@ -1,6 +1,17 @@
 {
 	"files.associations": {
 		"parsing.h": "c",
-		"operations.h": "c"
+		"operations.h": "c",
+		"__locale": "c",
+		"atomic": "c",
+		"bit": "c",
+		"cstddef": "c",
+		"ios": "c",
+		"limits": "c",
+		"locale": "c",
+		"memory": "c",
+		"new": "c",
+		"string": "c",
+		"type_traits": "c"
 	}
 }

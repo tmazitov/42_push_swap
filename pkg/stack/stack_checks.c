@@ -6,17 +6,17 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 14:51:09 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/05 21:25:39 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:52:34 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-int		stack_is_equal(t_stack *a, t_stack *b)
+int	stack_is_equal(t_stack *a, t_stack *b)
 {
 	t_stack_node	*node_a;
 	t_stack_node	*node_b;
-	
+
 	if (!a || !b || a->size != b->size)
 		return (0);
 	node_a = a->top;
@@ -31,7 +31,6 @@ int		stack_is_equal(t_stack *a, t_stack *b)
 	return (1);
 }
 
-
 static int	check_max_to_min(t_stack *stack, int pseudo)
 {
 	t_stack_node	*node;
@@ -40,8 +39,6 @@ static int	check_max_to_min(t_stack *stack, int pseudo)
 
 	if (!stack || stack->size < 2)
 		return (1);
-	min = NULL;
-	max = NULL;
 	if (pseudo)
 	{
 		min = stack_min(stack);
@@ -50,14 +47,14 @@ static int	check_max_to_min(t_stack *stack, int pseudo)
 	node = stack->top->next;
 	while (node) 
 	{
-		if ((pseudo && (node == max) && (node->prev == min)))
+		if (pseudo && (node == max) && (node->prev == min))
 		{
 			node = node->next;
-			continue;
-		}	
+			continue ;
+		}
 		if (node->data > node->prev->data)
 			return (0);
-		node = node->next;	
+		node = node->next;
 	}
 	return (1);
 }
@@ -70,8 +67,6 @@ static int	check_min_to_max(t_stack *stack, int pseudo)
 
 	if (!stack || stack->size < 2)
 		return (1);
-	min = NULL;
-	max = NULL;
 	if (stack)
 	{
 		min = stack_min(stack);
@@ -83,16 +78,16 @@ static int	check_min_to_max(t_stack *stack, int pseudo)
 		if (pseudo && (node == min) && (node->prev == max))
 		{
 			node = node->next;
-			continue;
-		}	
+			continue ;
+		}
 		if (node->data < node->prev->data)
 			return (0);
-		node = node->next;	
+		node = node->next;
 	}
 	return (1);
 }
 
-int	stack_is_sorted(t_stack *stack, s_sort_type type)
+int	stack_is_sorted(t_stack *stack, t_sort_type type)
 {
 	if (!stack || stack->size < 2)
 		return (0);
@@ -103,7 +98,7 @@ int	stack_is_sorted(t_stack *stack, s_sort_type type)
 	return (0);
 }
 
-int	stack_is_pseudo_sorted(t_stack *stack, s_sort_type type)
+int	stack_is_pseudo_sorted(t_stack *stack, t_sort_type type)
 {
 	if (!stack || stack->size < 2)
 		return (0);
