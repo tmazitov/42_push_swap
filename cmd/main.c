@@ -6,15 +6,17 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:53:10 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/07 10:40:21 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/08 17:37:08 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-int panic(char *message, t_stack *a, t_stack *b)
+int	panic(char *message, t_stack *a, t_stack *b)
 {
-	ft_printf("Error : %s\n", message);
+	write(2, "Error : ", 8);
+	write(2, message, ft_strlen(message));
+	write(2, "\n", 1);
 	free_stack(a);
 	free_stack(b);
 	return (1);

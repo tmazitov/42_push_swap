@@ -6,7 +6,7 @@
 /*   By: tmazitov <tmazitov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 00:06:59 by tmazitov          #+#    #+#             */
-/*   Updated: 2024/02/06 19:46:16 by tmazitov         ###   ########.fr       */
+/*   Updated: 2024/02/08 16:18:22 by tmazitov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,6 @@ int	validate_stack(t_stack *stack)
 {
 	int	err;
 
-	if (stack->size < 2)
-		return (1);
 	err = check_duplicate(stack);
-	if (err != 0) 
-		return (1);
-	return (0);
+	return (err);
 }
